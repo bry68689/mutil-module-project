@@ -1,0 +1,12 @@
+.idea
+*.iml
+test-output
+*.log
+.metadata
+target
+.project
+.classpath
+.settings
+bin
+sdklog
+resources/log4j.properties
