@@ -4,7 +4,8 @@
 
     <groupId>sjq.kafka</groupId>
     <artifactId>multi-module</artifactId>
-    <version>1.0</version>
+
+    <version>1.1</version>
     <packaging>jar</packaging>
     <name>kafka</name>
     <url>http://maven.apache.org</url>
@@ -45,7 +46,7 @@
                     <!-- see goals wiki page for configuration options -->
                     <flowInitContext>
                         <masterBranchName>master</masterBranchName>
-                        <developBranchName>dev</developBranchName>
+                        <developBranchName>develop</developBranchName>
                         <featureBranchPrefix>feature-</featureBranchPrefix>
                         <releaseBranchPrefix>release-</releaseBranchPrefix>
                         <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
