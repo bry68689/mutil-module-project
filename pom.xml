@@ -47,14 +47,14 @@
                     <!-- see goals wiki page for configuration options -->
                     <flowInitContext>
                         <masterBranchName>master</masterBranchName>
-                        <developBranchName>dev</developBranchName>
+                        <developBranchName>develop</developBranchName>
                         <featureBranchPrefix>feature-</featureBranchPrefix>
                         <releaseBranchPrefix>release-</releaseBranchPrefix>
                         <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
                         <versionTagPrefix>loan-</versionTagPrefix>
                     </flowInitContext>
-                    <username>shijunqiang@broadtext.com.cn</username>
-                    <password>Shijunqiang</password>
+                    <username>236159010@qq.com</username>
+                    <password>t95443233</password>
                 </configuration>
             </plugin>
         </plugins>
