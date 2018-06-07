@@ -25,6 +25,7 @@ public class kafkaConsumer extends Thread{
 	
 	@Override
 	public void run() {
+		//qqq
 		ConsumerConnector consumer = createConsumer();
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
 		topicCountMap.put(topic, 1);
