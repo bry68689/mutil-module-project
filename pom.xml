@@ -4,7 +4,7 @@
 
     <groupId>sjq.kafka</groupId>
     <artifactId>multi-module</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
     <name>kafka</name>
     <url>http://maven.apache.org</url>
