@@ -12,16 +12,7 @@ import kafka.javaapi.consumer.ConsumerConnector;
 
 
 
-/**
- * 接收数据
- * 接收到: message: 10
-接收到: message: 11
-接收到: message: 12
-接收到: message: 13
-接收到: message: 14
- * @author zm
- *
- */
+
 public class kafkaConsumer extends Thread{
 
 	private String topic;
@@ -34,28 +25,29 @@ public class kafkaConsumer extends Thread{
 	
 	@Override
 	public void run() {
+		//qqq
 		ConsumerConnector consumer = createConsumer();
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
-		topicCountMap.put(topic, 1); // 一次从主题中获取一个数据
+		topicCountMap.put(topic, 1);
 		 Map<String, List<KafkaStream<byte[], byte[]>>>  messageStreams = consumer.createMessageStreams(topicCountMap);
-		 KafkaStream<byte[], byte[]> stream = messageStreams.get(topic).get(0);// 获取每次接收到的这个数据
+		 KafkaStream<byte[], byte[]> stream = messageStreams.get(topic).get(0);
 		 ConsumerIterator<byte[], byte[]> iterator =  stream.iterator();
 		 while(iterator.hasNext()){
 			 String message = new String(iterator.next().message());
-			 System.out.println("接收到: " + message);
+			 System.out.println("" + message);
 		 }
 	}
 
 	private ConsumerConnector createConsumer() {
 		Properties properties = new Properties();
-		properties.put("zookeeper.connect", "172.17.6.197:2181");//声明zk
+		properties.put("zookeeper.connect", "172.17.6.197:2181");
 		properties.put("group.id", "group1");
 		return Consumer.createJavaConsumerConnector(new ConsumerConfig(properties));
 	 }
 	
 	
 	public static void main(String[] args) {
-		new kafkaConsumer("topic2").start();// 使用kafka集群中创建好的主题 test
+		new kafkaConsumer("topic2").start();
 		
 	}
 	 

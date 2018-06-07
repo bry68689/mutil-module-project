@@ -8,30 +8,6 @@ import kafka.serializer.StringEncoder;
 
 
 
-/**
- * 发送数据
- * 发送了: 0
-发送了: 1
-发送了: 2
-发送了: 3
-发送了: 4
-发送了: 5
-发送了: 6
-发送了: 7
-发送了: 8
-发送了: 9
-发送了: 10
-发送了: 11
-发送了: 12
-发送了: 13
-发送了: 14
-发送了: 15
-发送了: 16
-发送了: 17
-发送了: 18
- * @author zm
- *
- */
 public class kafkaProducer extends Thread{
 
 	private String topic;
@@ -48,7 +24,7 @@ public class kafkaProducer extends Thread{
 		int i=0;
 		while(true){
 			producer.send(new KeyedMessage<Integer, String>(topic, "message: " + i));
-			System.out.println("发送了: " + i);
+			System.out.println(" " + i);
 			try {
 				TimeUnit.SECONDS.sleep(1);
 				i++;
@@ -60,15 +36,15 @@ public class kafkaProducer extends Thread{
 
 	private Producer createProducer() {
 		Properties properties = new Properties();
-		properties.put("zookeeper.connect", "172.17.6.197:2181");//声明zk
+		properties.put("zookeeper.connect", "172.17.6.197:2181");
 		properties.put("serializer.class", StringEncoder.class.getName());
-		properties.put("metadata.broker.list", "172.17.6.197:9092,172.17.6.197:9093,172.17.6.197:9094");// 声明kafka broker
+		properties.put("metadata.broker.list", "172.17.6.197:9092,172.17.6.197:9093,172.17.6.197:9094");
 		return new Producer<Integer, String>(new ProducerConfig(properties));
 	 }
 	
 	
 	public static void main(String[] args) {
-		new kafkaProducer("topic2").start();// 使用kafka集群中创建好的主题 test
+		new kafkaProducer("topic2").start();
 		
 	}
 	 
