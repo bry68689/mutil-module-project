@@ -12,6 +12,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -29,5 +30,33 @@
             <version>0.8.2.0</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>1.0-m3</version>
+                <configuration>
+                    <!-- see goals wiki page for configuration options -->
+                    <flowInitContext>
+                        <masterBranchName>master</masterBranchName>
+                        <developBranchName>dev</developBranchName>
+                        <featureBranchPrefix>feature-</featureBranchPrefix>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+                        <versionTagPrefix>loan-</versionTagPrefix>
+                    </flowInitContext>
+                    <username>shijunqiang@broadtext.com.cn</username>
+                    <password>Shijunqiang</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
